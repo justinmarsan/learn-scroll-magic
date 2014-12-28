@@ -1,15 +1,13 @@
 # Site settings
-title: Learn ScrollMagic.js the Hard Way
-email: justinmarsan@gmail.com
+title: Learn ScrollMagic the Hard Way
+email: hello@justinmarsan.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Sharing what I learn about ScrollMagic along the way, with exercises, explanations and tips. Feedback and pull requests are more than welcome !
 baseurl: "/learn-scroll-magic" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: justinmarsan
+github_username:  justinmarsan
 
 # Build settings
 markdown: kramdown
-pygments: true
+highlighter: true

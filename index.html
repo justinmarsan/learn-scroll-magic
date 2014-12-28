@@ -5,12 +5,12 @@ layout: default
 <div class="home">
   <p>From simple to complex parallax scrolling, <a href="http://janpaepke.github.io/ScrollMagic/">ScrollMagic</a> is a great JavaScript library with powerful tools.</p>
 
-  <p>But, as always, with great tools may come great difficulty ! Follow along on the journey to creating stunning dynamic pages with this library with {{ site.categories.courses | size }} lessons, and more to come !</p>
+  <p>But, as always, with great tools may come great difficulty ! Follow along on the journey to creating stunning dynamic pages with this library with {{ site.categories.lessons | size }} lessons, and more to come !</p>
 
   <h1 class="page-heading">Lessons</h1>
 
   <ul class="post-list">
-    {% for post in site.categories.courses %}
+    {% for post in site.categories.lessons %}
       <li>
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>

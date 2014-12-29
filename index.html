@@ -10,7 +10,7 @@ layout: default
   <h1 class="page-heading">Lessons</h1>
 
   <ul class="post-list">
-    {% for post in site.categories.lessons %}
+    {% for post in site.categories.lessons reversed %}
       <li>
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>

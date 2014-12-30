@@ -1,0 +1,128 @@
+---
+layout: none
+---
+
+<html>
+	<head>
+		<title>Learn ScrollMagic - 2 - ScrollScene Options</title>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.debug.js"></script>
+
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			.container {
+				margin: 100px 0 100px;
+				padding: 50px;
+
+				outline: 1px dashed orange;
+			}
+
+			.block {
+				padding: 10px;
+
+				border: 1px solid black;
+
+				font-family: Helvetica;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container1" class="container">
+			<div id="block1" class="block">
+				Hi there !
+			</div>
+		</div>
+
+		<div id="container2" class="container">
+			<div id="block2" class="block">
+				Hi there !
+			</div>
+		</div>
+
+		<div id="container3" class="container">
+			<div id="block3" class="block">
+				Hi there !
+			</div>
+		</div>
+
+		<div id="container4" class="container">
+			<div id="block4" class="block">
+				Hi there !
+			</div>
+		</div>
+
+		<div style="height: 100vh">&nbsp;</div>
+
+		<script>
+			var controller;
+
+			$(function() {
+				controller = new ScrollMagic();
+
+				// First Animation
+				var changeToRed = TweenMax.to('#block1', 0.5, {
+					backgroundColor: 'red',
+					color: 'white'
+				});
+
+				var whenInContainer = new ScrollScene({
+					triggerElement: '#container1',
+					offset: 400
+				})
+				.setTween(changeToRed)
+				.addTo(controller);
+
+				// Second animation
+				var changeToRed2 = TweenMax.to('#block2', 0.5, {
+					backgroundColor: 'red',
+					color: 'white'
+				});
+
+				var whenInContainer2 = new ScrollScene({
+					triggerElement: '#container2',
+					offset: 200,
+					duration: 100
+				})
+				.setTween(changeToRed2)
+				.addTo(controller);
+
+				// Third animation
+				var changeToRed3 = TweenMax.to('#block3', 0.5, {
+					backgroundColor: 'red',
+					color: 'white'
+				});
+
+				var whenInContainer3 = new ScrollScene({
+					triggerElement: '#container3',
+					duration: $('#container3').outerHeight(),
+					reverse: false
+				})
+				.setTween(changeToRed3)
+				.addTo(controller);
+
+				// Fourth animation
+				var changeToRed4 = TweenMax.to('#block4', 0.5, {
+					backgroundColor: 'red',
+					color: 'white'
+				});
+
+				var whenInContainer4 = new ScrollScene({
+					triggerElement: '#container4',
+					duration: $('#container4').outerHeight(),
+					loglevel: 3
+				})
+				.setTween(changeToRed4)
+				.addTo(controller);
+			});
+		</script>
+	</body>
+</html>

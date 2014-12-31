@@ -4,7 +4,7 @@ Visit [http://justinmarsan.github.io/learn-scroll-magic/](http://justinmarsan.gi
 
 ## Lessons
 
-0 - Setup
-1 - First Tween
-2 - ScrollScene Options
-3 - First Pin
+* 0 - Setup
+* 1 - First Tween
+* 2 - ScrollScene Options
+* 3 - First Pin

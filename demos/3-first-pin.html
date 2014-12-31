@@ -1,0 +1,76 @@
+---
+layout: none
+---
+
+<html>
+	<head>
+		<title>Learn ScrollMagic - 3 - First Pin</title>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.debug.js"></script>
+
+		<style>
+		html, body {
+			height: 100%;
+			padding: 0;
+			margin: 0;
+
+			font-family: Helvetica, sans-serif;
+		}
+
+		.scene {
+			margin: 200px 0;
+			padding: 50px;
+
+			outline: 1px dotted blue;
+		}
+
+		.pin {
+			padding: 20px;
+
+			background: orange;
+
+			color: white;
+		}
+		</style>
+	</head>
+
+	<body>
+		<div style="height: 51vh">&nbsp;</div>
+
+		<div id="scene1" class="scene">
+			<div id="pin1" class="pin">Let's get pinning</div>
+		</div>
+
+		<div id="scene2" class="scene">
+			<div id="pin2" class="pin">Let's get pinning</div>
+		</div>
+
+		<div style="height: 100vh">&nbsp;</div>
+
+		<script>
+			var controller;
+
+			$(function() {
+				controller = new ScrollMagic();
+
+				var scene1 = new ScrollScene({
+					triggerElement: '#scene1',
+					duration: 400
+				})
+				.setPin('#pin1')
+				.addTo(controller)
+				.addIndicators();
+
+				var scene2 = new ScrollScene({
+					triggerElement: '#scene2'
+				})
+				.setPin('#pin2')
+				.addTo(controller)
+				.addIndicators();
+			});
+		</script>
+	</body>
+</html>

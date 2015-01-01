@@ -1,0 +1,103 @@
+---
+layout: none
+---
+
+<html>
+	<head>
+		<title>Learn ScrollMagic - 3 - First Pin</title>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.debug.js"></script>
+
+		<style>
+		html, body {
+			height: 100%;
+			padding: 0;
+			margin: 0;
+
+			font-family: Helvetica, sans-serif;
+		}
+
+		.scene {
+			margin: 200px 0;
+			padding: 50px;
+
+			outline: 1px dashed orange;
+		}
+
+		.pin {
+			padding: 20px;
+
+			background: blue;
+
+			color: white;
+		}
+
+		.tween {
+			padding: 20px;
+
+			outline: 1px dashed rgba(0, 0, 0, 0.2);
+		}
+		</style>
+	</head>
+
+	<body>
+		<div style="height: 51vh">&nbsp;</div>
+
+		<div class="scene" id="scene1">
+			<div class="pin" id="pin">
+				Don't move !
+			</div>
+
+			<div class="tween" id="tween">
+				I'm getting all red...
+			</div>
+		</div>
+
+		<div class="scene" id="scene2">
+			<div class="pin" id="pin2">
+				Don't move but do get red !
+			</div>
+		</div>
+
+		<div style="height: 100vh">&nbsp;</div>
+
+		<script>
+			var controller;
+
+			$(function() {
+				controller = new ScrollMagic();
+
+				var tween1 = TweenMax.to('#tween', 0.5, {
+					backgroundColor: 'red',
+					color: 'white'
+				});
+
+				var scene1 = new ScrollScene({
+					triggerElement: '#scene1',
+					duration: 200
+				})
+				.setPin('#pin', { pushFollowers: false })
+				.setTween(tween1)
+				.addTo(controller)
+				.addIndicators();
+
+				var tween2 = TweenMax.to('#pin2', 0.5, {
+					backgroundColor: 'red',
+					color: 'white'
+				});
+
+				var scene2 = new ScrollScene({
+					triggerElement: '#scene2',
+					duration: 200
+				})
+				.setPin('#pin2')
+				.setTween(tween2)
+				.addTo(controller)
+				.addIndicators();
+			});
+		</script>
+	</body>
+</html>

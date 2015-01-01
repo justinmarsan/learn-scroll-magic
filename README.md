@@ -8,3 +8,4 @@ Visit [http://justinmarsan.github.io/learn-scroll-magic/](http://justinmarsan.gi
 * 1 - First Tween
 * 2 - ScrollScene Options
 * 3 - First Pin
+* 4 - Pin and Tween

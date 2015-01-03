@@ -1,0 +1,133 @@
+---
+layout: none
+---
+<html>
+	<head>
+		<title>Learn ScrollMagic - 5 - TweenMax Methods</title>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.debug.js"></script>
+
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+
+				font-family: Helvetica, sans-serif;
+			}
+
+			.scene {
+				margin: 200px 0;
+				padding: 50px;
+
+				outline: 1px dashed red;
+			}
+
+			.tween {
+				padding: 20px;
+
+				background: blue;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="height: 51vh">&nbsp;</div>
+
+		<div class="scene" id="scene1">
+			<div class="tween" id="tween1">Example 1</div>
+		</div>
+
+		<div class="scene" id="scene2">
+			<div class="tween" id="tween2">Example 2</div>
+		</div>
+
+		<div class="scene" id="scene3">
+			<div class="tween" id="tween3">Example 3</div>
+		</div>
+
+		<div class="scene" id="scene4">
+			<div class="tween" id="tween4">Example 4</div>
+		</div>
+
+		<div class="scene" id="scene5">
+			<div class="tween" id="tween5">Example 5</div>
+		</div>
+
+		<div style="height: 100vh">&nbsp;</div>
+
+		<script>
+			var controller;
+
+			$(function() {
+				controller = new ScrollMagic();
+
+				// TweenMax.to()
+				var tween1 = TweenMax.to('#tween1', 0.5, {
+					backgroundColor: 'red'
+				});
+
+				var scene1 = new ScrollScene({
+					triggerElement: '#scene1'
+				})
+				.setTween(tween1)
+				.addTo(controller);
+
+				// TweenMax.from()
+				var tween2 = TweenMax.from('#tween2', 0.5, {
+					backgroundColor: 'red'
+				});
+
+				var scene2 = new ScrollScene({
+					triggerElement: '#scene2'
+				})
+				.setTween(tween2)
+				.addTo(controller);
+
+				// TweenMax.fromTo()
+				var tween3 = TweenMax.fromTo('#tween3', 0.5, {
+					backgroundColor: 'red'
+				}, {
+					backgroundColor: 'green'
+				});
+
+				var scene3 = new ScrollScene({
+					triggerElement: '#scene3'
+				})
+				.setTween(tween3)
+				.addTo(controller);
+
+				// TweenMax.to() & repeat
+				var tween4 = TweenMax.to('#tween4', 1, {
+					backgroundColor: 'red',
+					repeat: -1
+				});
+
+				var scene4 = new ScrollScene({
+					triggerElement: '#scene4',
+					duration: $('#scene4').outerHeight()
+				})
+				.setTween(tween4)
+				.addTo(controller);
+
+				// TweenMax.to() & yoyo
+				var tween5 = TweenMax.to('#tween5', 1, {
+					backgroundColor: 'red',
+					repeat: -1,
+					yoyo: true
+				});
+
+				var scene5 = new ScrollScene({
+					triggerElement: '#scene5',
+					duration: $('#scene5').outerHeight()
+				})
+				.setTween(tween5)
+				.addTo(controller);
+			});
+		</script>
+	</body>
+</html>

@@ -10,3 +10,4 @@ Visit [http://justinmarsan.github.io/learn-scroll-magic/](http://justinmarsan.gi
 * 3 - First Pin
 * 4 - Pin and Tween
 * 5 - [GSAP] TweenMax Methods (1)
+* 6 - [GSAP] TweenMax Methods (2)

@@ -1,0 +1,74 @@
+---
+layout: none
+---
+<html>
+	<head>
+		<title>Learn ScrollMagic - 6 - TweenMax Methods (2)</title>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.js"></script>
+		<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.debug.js"></script>
+
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+
+				font-family: Helvetica, sans-serif;
+			}
+
+			.scene {
+				margin: 200px 0;
+				padding: 50px;
+
+				outline: 1px dashed red;
+			}
+
+			.tween {
+				padding: 20px;
+
+				background: blue;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="height: 51vh">&nbsp;</div>
+
+		<div class="scene" id="scene1">
+			<div class="tween" id="tween1">Example 1</div>
+			<div class="tween" id="tween2">Example 2</div>
+			<div class="tween" id="tween3">Example 3</div>
+			<div class="tween" id="tween4">Example 4</div>
+			<div class="tween" id="tween5">Example 5</div>
+		</div>
+
+		<div style="height: 100vh">&nbsp;</div>
+
+		<script>
+			var controller;
+
+			$(function() {
+				controller = new ScrollMagic();
+
+				var stagger = TweenMax.staggerFromTo('#scene1 .tween', 1, {
+					backgroundColor: 'red'
+				},
+				{
+					backgroundColor: 'green'
+				},
+				0.3);
+
+				var scene1 = new ScrollScene({
+					triggerElement: '#scene1'
+				})
+				.setTween(stagger)
+				.addTo(controller)
+				.addIndicators();
+			});
+		</script>
+	</body>
+</html>
